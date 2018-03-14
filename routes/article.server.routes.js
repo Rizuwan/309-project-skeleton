@@ -1,4 +1,4 @@
- module.exports = function(app){
+module.exports = function(app){
  
   var articles = require('./../controllers/articles.server.controller.js');
   var users = require('./../controllers/users.server.controller.js');
@@ -15,8 +15,9 @@
  	.get(articles.read)
  	.put(users.requiresLogin, articles.update);
  
-app.route('/articles/all').get(articles.listView);
-
+ app.route('/articles/all').get(articles.listView);
+app.route('/article/:articleId').get(articles.singleView);
+ 
  
  app.param('articleId', articles.articleByID);
  
