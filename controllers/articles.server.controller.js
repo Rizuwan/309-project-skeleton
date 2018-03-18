@@ -125,4 +125,4 @@ module.exports.listView = function(req, res) {
  		req.article = article;
  		next();
  	});
- };
+ });
